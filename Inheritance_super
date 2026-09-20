@@ -1,0 +1,12 @@
+class Parent;
+  function void make_dinner();
+    $display("Cook rice");
+  endfunction
+endclass
+
+class Child extends Parent;
+  function void make_dinner();
+    super.make_dinner(); // 1. Run the parent version first ("Cook rice")
+    $display("Add curry"); // 2. Then add your own step
+  endfunction
+endclass
