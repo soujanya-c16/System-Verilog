@@ -1,0 +1,38 @@
+// Code your testbench here
+// or browse Examples
+module test;
+  class parent_class;
+    int a_parent;
+    int b_parent;
+    
+    function void display();
+      $display("displaying from parent class");
+    endfunction
+  endclass
+  
+  class child_class extends parent_class;
+    function void display();
+      super.display();
+      $display("displaying from child class");
+      $display("displaying: value of parent is %d", a_parent);
+      $display("displaying: value of parent is %d", b_parent);
+    endfunction
+  endclass
+  
+  initial
+    begin
+      parent_class a_p;
+      child_class c_p;
+      
+      a_p=new();
+      a_p.display();
+      c_p=new();
+      c_p.a_parent=20;
+      c_p.b_parent=100;
+      c_p.display();
+    end
+
+endmodule
+      
+      
+      
